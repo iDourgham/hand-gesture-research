@@ -66,6 +66,18 @@ conda env create -f environment.yml
 conda activate mediapipe_env
 ```
 
+### Requirements
+
+```bash
+numpy==1.26.4
+pandas==2.2.3
+seaborn==0.13.2
+mediapipe==0.10.21
+cv2==4.11.0
+xgboost==2.1.1
+scikit-learn==1.6.1
+```
+
 ---
 
 ## Contributors
