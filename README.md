@@ -1,49 +1,68 @@
-# **Hand Gesture Classification Using MediaPipe Landmarks from the HaGRID Dataset**
+# Research: Hand Gesture Classification
 
-## **Overview**
-This project focuses on classifying hand gestures using landmark data extracted by **MediaPipe** from the **HaGRID (Hand Gesture Recognition Image Dataset)**. The goal is to train a machine learning model capable of accurately classifying gestures based on the **x, y, z** coordinates of hand landmarks.
-
-Students will gain experience in:  
-✅ Data preprocessing and visualization  
-✅ Model training and evaluation  
-✅ Documentation and presentation of results  
+This repository contains the implementation, training, and evaluation of machine learning models for **Hand Gesture Classification** using a normalized dataset derived from the HaGRID dataset. The goal is to classify different hand gestures accurately using various classification algorithms.
 
 ---
 
-## **Dataset Details**
-- The **HaGRID** dataset contains **18 hand gesture classes**.
-- Each gesture is represented by **21 hand landmarks** (x, y, z) extracted using **MediaPipe**.
-- The dataset is provided as a **CSV file**, where each row contains:  
-  - **Landmark coordinates (x, y, z) for 21 keypoints**  
-  - **Gesture label**  
+## Project Overview
 
-### **Preprocessing Notes:**
-- Hand landmarks vary in **scale and position**. To standardize them:  
-  - **Recenter (x, y) coordinates** to make the wrist point the origin.  
-  - **Normalize landmarks** by dividing by the mid-finger tip position.  
-- The **z-location** does not require further processing.  
-- **Stabilize output predictions** by applying a **moving mode filter** over a window.  
+Hand gesture recognition is an important area in computer vision and human-computer interaction. This project focuses on classifying hand gestures from normalized landmark data using classical and ensemble machine learning models.
+
+The project includes:
+
+- Data preprocessing and label encoding
+- Model training using Random Forest, Support Vector Classifier (SVC), and XGBoost classifiers
+- Evaluation using accuracy, precision, recall, and F1-score metrics
+- Confusion matrix visualization
+- Model logging and experiment tracking with MLflow
 
 ---
 
-## **Project Deliverables**
-### ✅ **1. Google Colab Notebook**
-A well-documented notebook uploaded to **GitHub** that includes:  
-- 📌 **Data Loading:** Importing the CSV file and understanding its structure.  
-- 📌 **Data Visualization:** Plotting sample hand landmarks.  
-- 📌 **Preprocessing:** Cleaning and normalizing the data, handling missing values, and splitting into train/test sets.  
-- 📌 **Model Training:** Implementing and comparing at least **three ML models** (e.g., **Random Forest, SVM**).  
-- 📌 **Evaluation:** Reporting **accuracy, precision, recall, and F1-score**.  
-- 📌 **Conclusion:** Summarizing results and selecting the best model.  
+## Dataset
 
-### ✅ **2. Output Video**
-🎥 A short video demonstrating the trained model in action:  
-- **MediaPipe extracts hand landmarks** from each frame.  
-- **Predictions are displayed** in real-time.  
-- The video must be uploaded to **Google Drive** with a **public link**.  
+The dataset is a CSV file containing normalized hand gesture features and a target label column. The label column is encoded into numerical classes for training.
 
-📌 **Watch the demonstration video here:** [Hand Gesture Classification Demo](https://drive.google.com/file/d/1wyZIUwyqijr3Z_Y1rER77UWRb4dP_SCM/view?usp=sharing)  
+---
 
+# Hand Gesture Classification Models Comparison
+
+This repository contains implementations and experiments for classifying hand gestures using various machine learning models. Below is a comparison of the performance metrics of three different models trained and evaluated on the same dataset.
+
+| Model         | Accuracy        | F1 Score       | Precision      | Recall         |
+|---------------|-----------------|----------------|----------------|----------------|
+| Random Forest | 0.9788          | 0.9785         | 0.9784         | 0.9786         |
+| SVC           | 0.9611          | 0.9609         | 0.9616         | 0.9612         |
+| XGBoost       | **0.9848**      | **0.9845**     | **0.9844**     | **0.9847**     |
+
+---
+
+## Summary
+
+- **XGBoost** achieved the highest performance across all metrics, making it the best choice among the tested models.
+- **Random Forest** performed well, slightly behind XGBoost.
+- **SVC** also showed competitive results but lagged behind the ensemble methods.
+
+---
+
+## Notes
+
+- All models were trained on the same preprocessed dataset of normalized hand gesture features.
+- Metrics were computed on the test set.
+- Performance metrics used:
+  - **Accuracy:** Overall correctness of the model.
+  - **F1 Score:** Harmonic mean of precision and recall.
+  - **Precision:** Correct positive predictions over all positive predictions.
+  - **Recall:** Correct positive predictions over all actual positives.
+
+---
+
+Feel free to explore the code and experiment with hyperparameters to improve these results!
+
+---
+
+## Installation
+
+To run the code and experiments, ensure you have the following Python packages installed:
 
 ## Setup Instructions
 
