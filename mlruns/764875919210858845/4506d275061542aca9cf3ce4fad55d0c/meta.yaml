@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/764875919210858845/4506d275061542aca9cf3ce4fad55d0c/artifacts
+end_time: 1748214905503
+entry_point_name: ''
+experiment_id: '764875919210858845'
+lifecycle_stage: active
+run_id: 4506d275061542aca9cf3ce4fad55d0c
+run_name: svc
+run_uuid: 4506d275061542aca9cf3ce4fad55d0c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1748214860700
+status: 3
+tags: []
+user_id: Mohamed

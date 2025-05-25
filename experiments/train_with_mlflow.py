@@ -8,7 +8,8 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.preprocessing import OneHotEncoder,  StandardScaler
 from sklearn.metrics import (accuracy_score, precision_score, recall_score, f1_score, confusion_matrix, ConfusionMatrixDisplay, classification_report)
 from sklearn.preprocessing import LabelEncoder
-#from xgboost import XGBClassifier
+from sklearn.svm import SVC
+from xgboost import XGBClassifier
 
 import mlflow
 import mlflow.sklearn
@@ -48,17 +49,19 @@ def load_and_preprocess_data(path="D:\\Study\\MLOps Project\\hand-gesture-resear
 
 def train(X_train, y_train):
     """
-    Train a RandomForestClassifier and log it to MLflow.
+    Train a SVC classifier and log it to MLflow.
 
     Args:
         X_train (pd.DataFrame): Training features
         y_train (pd.Series): Training labels
 
     Returns:
-        RandomForestClassifier: Trained RandomForestClassifier model
+        SVC: Trained SVC model
     """
     # Initialize model
-    model = RandomForestClassifier(n_estimators=100, random_state=42)
+    model = SVC(kernel='rbf', C=1.0,
+                     gamma='scale', random_state=42)
+
     model.fit(X_train, y_train)
 
     # Log model with input-output signature
@@ -66,7 +69,7 @@ def train(X_train, y_train):
     mlflow.sklearn.log_model(
         sk_model=model,
         artifact_path="model",
-        registered_model_name="RandomForestGestureClassifier",
+        registered_model_name="SVCGestureClassifier",
         input_example=X_train.iloc[:1],
         signature=signature,
     )
@@ -76,8 +79,8 @@ def train(X_train, y_train):
 
     # Save and log local model file
     os.makedirs("model_with_mlflow", exist_ok=True)
-    dump(model, "model_with_mlflow/modelRF1.pkl")
-    mlflow.log_artifact("model_with_mlflow/modelRF1.pkl")
+    dump(model, "model_with_mlflow/modelSVC1.pkl")
+    mlflow.log_artifact("model_with_mlflow/modelSVC1.pkl")
 
     return model
     
@@ -96,8 +99,9 @@ def main():
         X_train, X_test, y_train, y_test, label_encoder = load_and_preprocess_data()
 
         # Log parameters
-        mlflow.log_param("model_type", "RandomForestClassifier")
-        mlflow.log_param("n_estimators", 100)
+        mlflow.log_param("model_type", "SVC")
+        mlflow.log_param("C", 1.0)
+        mlflow.log_param("gamma", "scale")
         mlflow.log_param("random_state", 42)
 
         # Train and log model
@@ -122,9 +126,10 @@ def main():
         conf_mat_disp.plot()
 
         # Save and log confusion matrix plot
-        plt.title("Confusion Matrix - Hand Gesture Classification")
+        plt.title("Confusion Matrix - Hand Gesture Classification - SVC")
+        plt.xticks(rotation=90)
         os.makedirs("plots", exist_ok=True)
-        cm_path = "plots/confusion_matrix.png"
+        cm_path = "plots/confusion_matrix_SVC.png"
         plt.savefig(cm_path)
         mlflow.log_artifact(cm_path)
         plt.close()

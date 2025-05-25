@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1748214898176
+current_stage: None
+description: ''
+last_updated_timestamp: 1748214898176
+name: SVCGestureClassifier
+run_id: 4506d275061542aca9cf3ce4fad55d0c
+run_link: ''
+source: mlflow-artifacts:/764875919210858845/4506d275061542aca9cf3ce4fad55d0c/artifacts/model
+status: READY
+status_message: null
+storage_location: mlflow-artifacts:/764875919210858845/4506d275061542aca9cf3ce4fad55d0c/artifacts/model
+user_id: null
+version: 1
