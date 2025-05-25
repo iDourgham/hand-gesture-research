@@ -64,6 +64,7 @@ You can set up the required environment either with Conda or pip.
 ```bash
 conda env create -f environment.yml
 conda activate mediapipe_env
+```
 
 ---
 
