@@ -56,11 +56,15 @@ def train(X_train, y_train):
         y_train (pd.Series): Training labels
 
     Returns:
-        SVC: Trained SVC model
+        XGBClassifier: Trained XGBClassifier model
     """
     # Initialize model
-    model = SVC(kernel='rbf', C=1.0,
-                     gamma='scale', random_state=42)
+    model = XGBClassifier(
+        objective="multi:softmax",
+        num_class=18,
+        eval_metric='mlogloss',
+        random_state=42
+    )
 
     model.fit(X_train, y_train)
 
@@ -69,7 +73,7 @@ def train(X_train, y_train):
     mlflow.sklearn.log_model(
         sk_model=model,
         artifact_path="model",
-        registered_model_name="SVCGestureClassifier",
+        registered_model_name="XGBClassifierGestureClassifier",
         input_example=X_train.iloc[:1],
         signature=signature,
     )
@@ -79,8 +83,8 @@ def train(X_train, y_train):
 
     # Save and log local model file
     os.makedirs("model_with_mlflow", exist_ok=True)
-    dump(model, "model_with_mlflow/modelSVC1.pkl")
-    mlflow.log_artifact("model_with_mlflow/modelSVC1.pkl")
+    dump(model, "model_with_mlflow/modelXGB1.pkl")
+    mlflow.log_artifact("model_with_mlflow/modelXGB1.pkl")
 
     return model
     
@@ -98,14 +102,15 @@ def main():
         # Load and preprocess the data
         X_train, X_test, y_train, y_test, label_encoder = load_and_preprocess_data()
 
-        # Log parameters
-        mlflow.log_param("model_type", "SVC")
-        mlflow.log_param("C", 1.0)
-        mlflow.log_param("gamma", "scale")
-        mlflow.log_param("random_state", 42)
-
         # Train and log model
         model = train(X_train, y_train)
+
+        # Log parameters
+        mlflow.log_param("model_type", "XGBClassifier")
+        mlflow.log_param("objective", model.get_params().get("objective", "multi:softprob"))
+        mlflow.log_param("num_class", model.get_params().get("num_class", ""))
+        mlflow.log_param("max_depth", model.get_params().get("max_depth", 6))
+        mlflow.log_param("learning_rate", model.get_params().get("learning_rate", 0.3))
 
         # Make predictions
         y_pred = model.predict(X_test)
@@ -126,15 +131,15 @@ def main():
         conf_mat_disp.plot()
 
         # Save and log confusion matrix plot
-        plt.title("Confusion Matrix - Hand Gesture Classification - SVC")
+        plt.title("Confusion Matrix - Hand Gesture Classification - XGBClassifier")
         plt.xticks(rotation=90)
         os.makedirs("plots", exist_ok=True)
-        cm_path = "plots/confusion_matrix_SVC.png"
+        cm_path = "plots/confusion_matrix_XGBClassifier.png"
         plt.savefig(cm_path)
         mlflow.log_artifact(cm_path)
         plt.close()
 
-        
+
 
 if __name__ == "__main__":
     main()

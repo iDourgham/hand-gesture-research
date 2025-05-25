@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1748216112380
+current_stage: None
+description: ''
+last_updated_timestamp: 1748216112380
+name: XGBClassifierGestureClassifier
+run_id: 4db5b1bdb8fd46809f0d724763461772
+run_link: ''
+source: mlflow-artifacts:/764875919210858845/4db5b1bdb8fd46809f0d724763461772/artifacts/model
+status: READY
+status_message: null
+storage_location: mlflow-artifacts:/764875919210858845/4db5b1bdb8fd46809f0d724763461772/artifacts/model
+user_id: null
+version: 1
