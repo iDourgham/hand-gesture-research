@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1748213498700
+current_stage: None
+description: ''
+last_updated_timestamp: 1748213498700
+name: RandomForestGestureClassifier
+run_id: e0f3e33f3d034b4bbb42bbdaacf72000
+run_link: ''
+source: mlflow-artifacts:/764875919210858845/e0f3e33f3d034b4bbb42bbdaacf72000/artifacts/model
+status: READY
+status_message: null
+storage_location: mlflow-artifacts:/764875919210858845/e0f3e33f3d034b4bbb42bbdaacf72000/artifacts/model
+user_id: null
+version: 4

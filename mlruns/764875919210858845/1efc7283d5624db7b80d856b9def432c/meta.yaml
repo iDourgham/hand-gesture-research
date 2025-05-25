@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/764875919210858845/1efc7283d5624db7b80d856b9def432c/artifacts
+deleted_time: 1748213742613
+end_time: null
+entry_point_name: ''
+experiment_id: '764875919210858845'
+lifecycle_stage: deleted
+run_id: 1efc7283d5624db7b80d856b9def432c
+run_name: clean-dolphin-739
+run_uuid: 1efc7283d5624db7b80d856b9def432c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1748213075717
+status: 1
+tags: []
+user_id: Mohamed

@@ -1,0 +1,6 @@
+artifact_location: mlflow-artifacts:/764875919210858845
+creation_time: 1748212317663
+experiment_id: '764875919210858845'
+last_update_time: 1748212317663
+lifecycle_stage: active
+name: hand-gesture-classification

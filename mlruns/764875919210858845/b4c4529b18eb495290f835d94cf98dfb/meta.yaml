@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/764875919210858845/b4c4529b18eb495290f835d94cf98dfb/artifacts
+end_time: 1748212385258
+entry_point_name: ''
+experiment_id: '764875919210858845'
+lifecycle_stage: active
+run_id: b4c4529b18eb495290f835d94cf98dfb
+run_name: delicate-shrew-650
+run_uuid: b4c4529b18eb495290f835d94cf98dfb
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1748212385171
+status: 4
+tags: []
+user_id: Mohamed

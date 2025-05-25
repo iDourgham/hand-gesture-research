@@ -61,6 +61,9 @@ conda activate mediapipe_env
 ### Requirements
 
 ```bash
+mlflow==2.22.0
+scipy==1.15.2
+psutil==5.9.0
 numpy==1.26.4
 pandas==2.2.3
 seaborn==0.13.2

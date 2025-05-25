@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/764875919210858845/e0f3e33f3d034b4bbb42bbdaacf72000/artifacts
+deleted_time: 1748213742612
+end_time: null
+entry_point_name: ''
+experiment_id: '764875919210858845'
+lifecycle_stage: deleted
+run_id: e0f3e33f3d034b4bbb42bbdaacf72000
+run_name: thoughtful-rat-405
+run_uuid: e0f3e33f3d034b4bbb42bbdaacf72000
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1748213469647
+status: 1
+tags: []
+user_id: Mohamed
