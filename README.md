@@ -55,7 +55,7 @@ A well-documented notebook uploaded to **GitHub** that includes:
 
 ## Setup Instructions
 
-### 1. Create the environment
+### 3. Create the environment
 
 You can set up the required environment either with Conda or pip.
 
