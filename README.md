@@ -44,14 +44,6 @@ A well-documented notebook uploaded to **GitHub** that includes:
 
 📌 **Watch the demonstration video here:** [Hand Gesture Classification Demo](https://drive.google.com/file/d/1wyZIUwyqijr3Z_Y1rER77UWRb4dP_SCM/view?usp=sharing)  
 
----
-
-## **Evaluation Criteria**
-✅ **Code Quality** – Clean, well-documented, and reproducible.  
-✅ **Model Performance** – Accuracy and robustness of trained models.  
-✅ **Visualization** – Clear representation of data and results.  
-
----
 
 ## Setup Instructions
 
